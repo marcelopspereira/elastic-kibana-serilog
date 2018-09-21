@@ -22,6 +22,8 @@ namespace elasctic_kibana {
 
             Log.Logger = new LoggerConfiguration ()
                 .Enrich.FromLogContext ()
+                .Enrich.WithExceptionDetails ()
+
                 .WriteTo.Elasticsearch (new ElasticsearchSinkOptions (new Uri (elasticUri)) {
                     AutoRegisterTemplate = true,
                 })
